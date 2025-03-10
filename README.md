@@ -19,14 +19,13 @@ An online auction system enabling seamless buying and selling via competitive bi
 - **Frontend**: React / Nextjs
 - **Backend**: Node.js /Nextjs
 - **Database**: PostgreSQL
--
 
 ## Setup
 
 1. **Clone & Install**
 
    ```sh
-   git clone https://github.com/yourusername/e-auction-platform.git
+   git clone https://github.com/gulshank0/e-auction-platform.git
    cd e-auction-platform
    npm install / pip install -r requirements.txt
    ```
