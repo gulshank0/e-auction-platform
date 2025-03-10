@@ -16,12 +16,10 @@ An online auction system enabling seamless buying and selling via competitive bi
 
 ## Tech Stack
 
-- **Frontend**: React / Vue / Angular
-- **Backend**: Node.js / Django / Flask
-- **Database**: MySQL / PostgreSQL / MongoDB
-- **Auth**: JWT / OAuth
-- **Payments**: PayPal / Stripe
-- **Hosting**: AWS / Heroku
+- **Frontend**: React / Nextjs
+- **Backend**: Node.js /Nextjs
+- **Database**: PostgreSQL
+-
 
 ## Setup
 
@@ -37,8 +35,8 @@ An online auction system enabling seamless buying and selling via competitive bi
 3. **Run the App**
 
    ```sh
-   npm start  # Frontend
-   npm run server  # Backend
+   npm run dev  # Frontend
+   npm run dev  # Backend
    ```
 
 ## Usage
