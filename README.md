@@ -27,7 +27,7 @@ An online auction system enabling seamless buying and selling via competitive bi
    ```sh
    git clone https://github.com/gulshank0/e-auction-platform.git
    cd e-auction-platform
-   npm install / pip install -r requirements.txt
+   npm install 
    ```
 
 2. **Configure `.env`** (Database, API keys)
@@ -35,7 +35,7 @@ An online auction system enabling seamless buying and selling via competitive bi
 
    ```sh
    npm run dev  # Frontend
-   npm run dev  # Backend
+   
    ```
 
 ## Usage
