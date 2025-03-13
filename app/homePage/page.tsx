@@ -4,7 +4,7 @@ export default function Home() {
       <div>
 
 <div>
-   hi there in signin page 
+   hi there in home page 
         </div>
 
       </div>
