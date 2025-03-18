@@ -27,7 +27,9 @@ export default function Home() {
         className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-2 px-2 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-6xl"
       >
           <div className="flex gap-8 justify-center text-4xl ">
-      <GradientButton>Know More</GradientButton>
+      <GradientButton 
+      onClick={()=>router.push("/knowMore")}
+      >Know More</GradientButton>
       <GradientButton variant="variant" 
       onClick={()=>router.push("/homePage")}
       > Let's Go</GradientButton>

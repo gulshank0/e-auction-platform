@@ -2,9 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation";
-import { Box,Lock,Search,Settings, Sparkles } from "lucide-react";
 
-import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { cn } from "@/lib/utils";
 
 
@@ -20,7 +18,7 @@ export default function Navvbar() {
           onClick={()=>window.location.reload()}
           >E-Auction Platform</div>
           <div className="flex items-center space-x-4">
-          <Button className="text-white text-2xl bg-black hover:bg-gray-600 cursor-pointer" onClick={() => window.location.reload()}>Home</Button>
+          <Button className="text-white text-2xl bg-black hover:bg-gray-600 cursor-pointer" onClick={() => router.push("/")}>Home</Button>
           <Button className="text-white text-2xl bg-black hover:bg-gray-600 cursor-pointer" onClick={() => router.push("/signin")}>Auctions</Button>
             <Button className="text-white text-2xl bg-black hover:bg-gray-600 cursor-pointer ">Contact</Button>
             <div className="ml-8 space-x-4 ">
