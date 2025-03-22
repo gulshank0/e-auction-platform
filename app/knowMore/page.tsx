@@ -15,7 +15,7 @@ export default function Home() {
 
 <div className="text-pretty flex justify-center
 items-center h-screen bg-black text-white relative bottom-0 ">
-    here is know more page
+    
 </div>
 
 <div>
