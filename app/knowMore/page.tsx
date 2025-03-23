@@ -6,11 +6,10 @@ export default function Home() {
   return (
     <>
       <div className="relative bottom-0">
-        <Navvbar />
-
         <div className="bg-black">
+          <Navvbar />
           <div className="min-h-screen w-full">
-            <div className="absolute top-0 left-0 w-full">
+            <div className="absolute top-30 left-0 w-full">
               <FeaturesSectionWithHoverEffects />
             </div>
           </div>
