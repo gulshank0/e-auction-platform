@@ -21,13 +21,13 @@ export default function Home() {
 
             {/* Content */}
             <div className=" relative z-10 flex  items-center justify-center h-full text-center">
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-8 grid grid-cols-3 ">
+              <h1 className="text-4xl md:text-4xl font-bold text-white mb-8 grid grid-cols-3 ">
                 <Card title=" First Elements" />
-                <Card title=" First Elements" />
-                <Card title=" First Elements" />
-                <Card title=" First Elements" />
-                <Card title=" First Elements" />
-                <Card title=" First Elements" />
+                <Card title=" Second Elements" />
+                <Card title=" Third Elements" />
+                <Card title=" Fourth Elements" />
+                <Card title=" Fifth Elements" />
+                <Card title=" sith Elements" />
               </h1>
             </div>
 
