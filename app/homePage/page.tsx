@@ -4,6 +4,7 @@ import React from "react";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 
 import Navvbar from "@/components/ui/navvbar";
+import Card from "@/components/ui/Card";
 
 export default function Home() {
   return (
@@ -19,14 +20,15 @@ export default function Home() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 flex flex-col items-center justify-center h-full text-center">
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-8">
-                Shooting Stars Effect
+            <div className=" relative z-10 flex  items-center justify-center h-full text-center">
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-8 grid grid-cols-3 ">
+                <Card title=" First Elements" />
+                <Card title=" First Elements" />
+                <Card title=" First Elements" />
+                <Card title=" First Elements" />
+                <Card title=" First Elements" />
+                <Card title=" First Elements" />
               </h1>
-              <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto px-4">
-                A mesmerizing background effect with customizable shooting stars
-                traversing across the screen
-              </p>
             </div>
 
             {/* Multiple shooting star layers with different colors and speeds */}
