@@ -20,18 +20,18 @@ export default function Navvbar() {
           </div>
           <div className="flex items-center space-x-4">
             <Button
-              className="text-white text-2xl bg-black hover:bg-gray-600 cursor-pointer"
+              className="text-white text-2xl bg-black hover:bg-gray-600 cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110"
               onClick={() => router.push("/")}
             >
               Home
             </Button>
             <Button
-              className="text-white text-2xl bg-black hover:bg-gray-600 cursor-pointer"
+              className="text-white text-2xl bg-black hover:bg-gray-600 cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110"
               onClick={() => router.push("/signin")}
             >
               Auctions
             </Button>
-            <Button className="text-white text-2xl bg-black hover:bg-gray-600 cursor-pointer ">
+            <Button className="text-white text-2xl bg-black hover:bg-gray-600 cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 ">
               Contact
             </Button>
             <div className="ml-8 space-x-4 ">
@@ -54,4 +54,3 @@ export default function Navvbar() {
     </>
   );
 }
-
