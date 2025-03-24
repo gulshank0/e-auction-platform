@@ -32,8 +32,7 @@ export default function Home() {
                     variant="variant"
                     onClick={() => router.push("/homePage")}
                   >
-                    {" "}
-                    Let's Go
+                    Lets Go
                   </GradientButton>
                 </div>
                 E-auctions bring transparency, efficiency,

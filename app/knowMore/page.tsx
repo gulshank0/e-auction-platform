@@ -9,7 +9,7 @@ export default function Home() {
         <div className="bg-black">
           <Navvbar />
           <div className="min-h-screen w-full">
-            <div className="absolute top-30 left-0 w-full">
+            <div className="absolute top-40 left-0 w-full">
               <FeaturesSectionWithHoverEffects />
             </div>
           </div>
