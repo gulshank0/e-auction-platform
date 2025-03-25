@@ -35,7 +35,7 @@ export default function Home() {
                     Lets Go
                   </GradientButton>
                 </div>
-                E-Auction's bring Transparency, Efficiency,
+                E-Auctions bring Transparency, Efficiency,
                 <br /> making Buying and Selling Smarter and Faster. <br /> the
                 right way
               </motion.h1>
