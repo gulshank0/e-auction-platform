@@ -4,6 +4,7 @@ export default function Home() {
       <div>
 
 <div>
+  <div className="bg-red-600"> a small box</div>
    hi there in signin page 
         </div>
 
