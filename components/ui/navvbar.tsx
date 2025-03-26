@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
-import { cn } from "@/lib/utils";
 
 export default function Navvbar() {
   const router = useRouter();
@@ -38,14 +37,14 @@ export default function Navvbar() {
             <div className="ml-8 space-x-4 ">
               <Button
                 variant="outline"
-                className="text-black-600 hover:cursor-pointer"
+                className="text-black-600 text-2xl hover:cursor-pointer hover: cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 "
                 onClick={()=>router.push("/signin")}
               >
                 Sign In
               </Button>
               <Button
                 variant="default"
-                className=" text-white hover:cursor-pointer "
+                className=" text-white text-2xl hover:cursor-pointer hover:bg-transparent cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110  "
                 onClick={()=>router.push("/signin")}
               >
                 Sign Up

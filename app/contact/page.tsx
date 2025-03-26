@@ -15,10 +15,10 @@ function TeamPage() {
                   alt="Description"
                   width={160}
                   height={160}
-                  className=" flex justify-center w-25 h-25 rounded-full shadow-amber-200 hover:cursor-pointer"
+                  className=" flex justify-center items-center w-35 h-35 rounded-full hover:cursor-pointer"
                 />
 
-<p className="text-3xl text-center">Linux Guy</p>
+<p className="text-4xl font-bold text-center pt-3">Linux Guy</p>
               <p className="text-center">
                 Full Stack Developer <br /> Using Arch btw
               </p>
