@@ -5,11 +5,11 @@ import Navvbar from "@/components/ui/navvbar";
 export default function Home() {
   return (
     <>
-      <div className="relative bottom-0">
-        <div className="bg-black">
+      <div className="relative">
+        <div className="bg-black min-h-screen">
           <Navvbar />
-          <div className="min-h-screen w-full">
-            <div className="absolute top-40 left-0 w-full">
+          <div className="container mx-auto px-4">
+            <div className="pt-24">
               <FeaturesSectionWithHoverEffects />
             </div>
           </div>

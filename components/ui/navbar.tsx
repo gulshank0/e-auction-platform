@@ -19,29 +19,33 @@ export default function Navbar() {
           <div className="flex items-center space-x-4">
             <Button
               className=" bg-transparent text-2xl  hover:bg-transparent text-white cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110"
-              onClick={() => window.location.reload()}
+              onClick={() =>router.push("/") }
             >
               Home
             </Button>
             <Button
               className="text-white text-2xl bg-transparent hover:bg-transparent cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 "
-              onClick={() => router.push("/signin")}
+              onClick={() => router.push("/homePage")}
             >
               Auctions
             </Button>
-            <Button className="text-white text-2xl bg-transparent hover:bg-transparent cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 ">
+            <Button className="text-white text-2xl bg-transparent hover:bg-transparent cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 "
+            onClick={()=>router.push("/contact")}
+            >
               Contact
             </Button>
             <div className="ml-8 space-x-4 ">
               <Button
                 variant="outline"
                 className="text-black-600 text-xl hover:cursor-pointer hover: cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 "
+                onClick={()=>router.push("/signin")}
               >
                 Sign In
               </Button>
               <Button
                 variant="default"
                 className=" text-white text-xl hover:cursor-pointer hover: cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110"
+                onClick={()=>router.push("/signin")}
               >
                 Sign Up
               </Button>

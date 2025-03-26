@@ -27,23 +27,26 @@ export default function Navvbar() {
             </Button>
             <Button
               className="text-white text-2xl bg-black hover:bg-transparent cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110"
-              onClick={() => router.push("/signin")}
+              onClick={() => router.push("/homePage")}
             >
               Auctions
             </Button>
-            <Button className="text-white text-2xl bg-black hover:bg-transparent cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 ">
+            <Button className="text-white text-2xl bg-black hover:bg-transparent cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 " 
+            onClick={()=>router.push("/contact")}>
               Contact
             </Button>
             <div className="ml-8 space-x-4 ">
               <Button
                 variant="outline"
                 className="text-black-600 hover:cursor-pointer"
+                onClick={()=>router.push("/signin")}
               >
                 Sign In
               </Button>
               <Button
                 variant="default"
                 className=" text-white hover:cursor-pointer "
+                onClick={()=>router.push("/signin")}
               >
                 Sign Up
               </Button>
