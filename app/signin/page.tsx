@@ -1,27 +1,27 @@
 "use client";
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
-import { auth, db } from '@/lib/firebase';
-import { 
-  signInWithEmailAndPassword, 
-  createUserWithEmailAndPassword, 
-  GoogleAuthProvider, 
-  signInWithPopup 
-} from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import { auth, db } from "@/lib/firebase";
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 import { GradientButton } from "@/components/ui/gradient-button";
-import Navbar from "@/components/ui/navbar";
+import Navvbar from "@/components/ui/navvbar";
 
 export default function SignIn() {
   const router = useRouter();
   const [isNewUser, setIsNewUser] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    name: ''
+    email: "",
+    password: "",
+    name: "",
   });
 
   const handleGoogleSignIn = async () => {
@@ -30,15 +30,15 @@ export default function SignIn() {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-      
+
       // Create user document in Firestore
-      await setDoc(doc(db, 'users', user.uid), {
+      await setDoc(doc(db, "users", user.uid), {
         name: user.displayName,
         email: user.email,
-        createdAt: new Date().toISOString()
+        createdAt: new Date().toISOString(),
       });
 
-      router.push('/homePage');
+      router.push("/homePage");
     } catch (error: any) {
       setError(error.message);
     } finally {
@@ -49,24 +49,28 @@ export default function SignIn() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
+    setError("");
 
     try {
       if (isNewUser) {
         const result = await createUserWithEmailAndPassword(
           auth,
           formData.email,
-          formData.password
+          formData.password,
         );
-        await setDoc(doc(db, 'users', result.user.uid), {
+        await setDoc(doc(db, "users", result.user.uid), {
           name: formData.name,
           email: formData.email,
-          createdAt: new Date().toISOString()
+          createdAt: new Date().toISOString(),
         });
       } else {
-        await signInWithEmailAndPassword(auth, formData.email, formData.password);
+        await signInWithEmailAndPassword(
+          auth,
+          formData.email,
+          formData.password,
+        );
       }
-      router.push('/homePage');
+      router.push("/homePage");
     } catch (error: any) {
       setError(error.message);
     } finally {
@@ -76,7 +80,9 @@ export default function SignIn() {
 
   return (
     <>
-      <Navbar />
+      <div className=" bg-black ">
+        <Navvbar />
+      </div>
       <main className="min-h-screen bg-black flex items-center">
         <div className="container mx-auto px-4 py-8">
           <div className="max-w-md mx-auto">
@@ -86,7 +92,7 @@ export default function SignIn() {
               className="bg-white/10 p-8 rounded-lg backdrop-blur-sm"
             >
               <h2 className="text-2xl font-bold text-white mb-6 text-center">
-                {isNewUser ? 'Create Account' : 'Sign In'}
+                {isNewUser ? "Create Account" : "Sign In"}
               </h2>
 
               {error && (
@@ -107,7 +113,9 @@ export default function SignIn() {
                       placeholder="Enter your name"
                       className="w-full px-4 py-2 rounded-lg bg-black/50 border border-gray-600 text-white focus:outline-none focus:border-white"
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
                     />
                   </div>
                 )}
@@ -123,7 +131,9 @@ export default function SignIn() {
                     placeholder="Enter your email"
                     className="w-full px-4 py-2 rounded-lg bg-black/50 border border-gray-600 text-white focus:outline-none focus:border-white"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                   />
                 </div>
 
@@ -139,7 +149,9 @@ export default function SignIn() {
                     placeholder="Enter your password"
                     className="w-full px-4 py-2 rounded-lg bg-black/50 border border-gray-600 text-white focus:outline-none focus:border-white"
                     value={formData.password}
-                    onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, password: e.target.value })
+                    }
                   />
                 </div>
 
@@ -149,7 +161,11 @@ export default function SignIn() {
                     className="w-full"
                     disabled={loading}
                   >
-                    {loading ? 'Processing...' : isNewUser ? 'Create Account' : 'Sign In'}
+                    {loading
+                      ? "Processing..."
+                      : isNewUser
+                        ? "Create Account"
+                        : "Sign In"}
                   </GradientButton>
 
                   <div className="relative">
@@ -157,7 +173,9 @@ export default function SignIn() {
                       <div className="w-full border-t border-gray-600"></div>
                     </div>
                     <div className="relative flex justify-center text-sm">
-                      <span className="px-2 bg-black text-gray-400">Or continue with</span>
+                      <span className="px-2 bg-black text-gray-400">
+                        Or continue with
+                      </span>
                     </div>
                   </div>
 
@@ -175,17 +193,16 @@ export default function SignIn() {
                     onClick={() => setIsNewUser(!isNewUser)}
                     className="w-full text-gray-400 hover:text-white text-sm"
                   >
-                    {isNewUser 
-                      ? 'Already have an account? Sign in' 
-                      : 'Need an account? Create one'}
+                    {isNewUser
+                      ? "Already have an account? Sign in"
+                      : "Need an account? Create one"}
                   </button>
                 </div>
               </form>
-                  </motion.div>
-                </div>
-              </div>
-            </main>
-      
+            </motion.div>
+          </div>
+        </div>
+      </main>
     </>
   );
 }
