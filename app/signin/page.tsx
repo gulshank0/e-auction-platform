@@ -179,7 +179,7 @@ export default function SignIn() {
                     </div>
                   </div>
 
-                  <GradientButton
+                  <GradientButton 
                     type="button"
                     onClick={handleGoogleSignIn}
                     className="w-full"
