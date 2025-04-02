@@ -11,9 +11,9 @@ export default function Home() {
     <>
       <Navbar />
 
-      <main>
-        <div>
-          <div className="bg-black text-4xl text-white flex items-center justify-center relative h-[100vh]">
+      <main className="h-screen flex flex-col" >
+        <div className="bg-black text-4xl text-white ">
+          
             <LampContainer>
               <motion.h1
                 initial={{ opacity: 0.5, y: 100 }}
@@ -42,10 +42,16 @@ export default function Home() {
                 </div>
               </motion.h1>
             </LampContainer>
+          <div className="flex flex-col items-center justify-center"> 
+
+
           <Footer />
+
+          </div>
+
           </div>
          
-        </div>
+        
       </main>
     </>
   );
