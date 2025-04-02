@@ -8,7 +8,7 @@ function Footer() {
 <div>
 hi there footer
 
-
+in the footer
 </div>
 
 
