@@ -69,11 +69,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       
+      - name: Set environment variables
+        run: |
+          echo "NODE_ENV=production" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_BASE_PATH=/e-auction-platform" >> $GITHUB_ENV
+      
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.runner }} ${{ steps.detect-package-manager.outputs.command }}
       
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        run: |
+          ${{ steps.detect-package-manager.outputs.runner }} next build
       
       - name: Static HTML export
         run: ${{ steps.detect-package-manager.outputs.runner }} next export || ${{ steps.detect-package-manager.outputs.runner }} run export || echo "next export is no longer needed in Next.js 13+"
