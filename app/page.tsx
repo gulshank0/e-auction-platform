@@ -3,7 +3,6 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { LampContainer } from "@/components/ui/lamp";
-import Footer from "@/components/ui/Footer";
 import Navbar from "@/components/ui/navbar";
 export default function Home() {
   const router = useRouter();
