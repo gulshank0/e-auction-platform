@@ -79,31 +79,37 @@ jobs:
       
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} run build
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
       
-      - name: Static HTML export (if needed)
+      - name: Show build errors (if any)
+        if: ${{ failure() }}
         run: |
-          if grep -q '"export"' package.json; then
-            echo "Export command found in package.json, executing..."
-            ${{ steps.detect-package-manager.outputs.runner }} run export
-          elif [ -f "next.config.js" ] && grep -q "output: 'export'" next.config.js; then
-            echo "Export already configured in next.config.js, skipping explicit export"
+          echo "Build failed. Showing error details:"
+          cat .next/error.log || echo "No error log found"
+          echo "Listing .next directory:"
+          ls -la .next || echo ".next directory not found"
+      
+      - name: Handle static export
+        run: |
+          echo "Next.js build complete. Checking for static export..."
+          if [ -d "./out" ]; then
+            echo "✅ Static output found in ./out directory"
           else
-            echo "No export configuration found, assuming modern Next.js with automatic static export"
+            echo "⚠️ Static output directory not found, you may need to check next.config.js"
           fi
-        continue-on-error: true
       
       - name: Check output directory
         id: check-output
         run: |
           if [ -d "./out" ]; then
-            echo "Using './out' directory for deployment"
             echo "output_dir=./out" >> $GITHUB_OUTPUT
-          elif [ -d "./.next" ]; then
-            echo "Using './.next' directory for deployment"
+          elif [ -d "./.next/static" ]; then
             echo "output_dir=./.next" >> $GITHUB_OUTPUT
           else
-            echo "Using './dist' directory for deployment"
-            echo "output_dir=./dist" >> $GITHUB_OUTPUT
+            echo "❌ No valid output directory found!"
+            ls -la
+            exit 1
           fi
       
       - name: Debug - List directories
