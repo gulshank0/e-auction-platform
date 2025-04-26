@@ -78,21 +78,57 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} ${{ steps.detect-package-manager.outputs.command }}
       
       - name: Build with Next.js
-        run: |
-          ${{ steps.detect-package-manager.outputs.runner }} run build
+        run: ${{ steps.detect-package-manager.outputs.runner }} run build
       
-      - name: Static HTML export
-        run: ${{ steps.detect-package-manager.outputs.runner }} next export || ${{ steps.detect-package-manager.outputs.runner }} run export || echo "next export is no longer needed in Next.js 13+"
+      - name: Static HTML export (if needed)
+        run: |
+          if grep -q '"export"' package.json; then
+            echo "Export command found in package.json, executing..."
+            ${{ steps.detect-package-manager.outputs.runner }} run export
+          elif [ -f "next.config.js" ] && grep -q "output: 'export'" next.config.js; then
+            echo "Export already configured in next.config.js, skipping explicit export"
+          else
+            echo "No export configuration found, assuming modern Next.js with automatic static export"
+          fi
+        continue-on-error: true
       
       - name: Check output directory
         id: check-output
         run: |
           if [ -d "./out" ]; then
+            echo "Using './out' directory for deployment"
             echo "output_dir=./out" >> $GITHUB_OUTPUT
-          elif [ -d "./.next/static" ]; then
+          elif [ -d "./.next" ]; then
+            echo "Using './.next' directory for deployment"
             echo "output_dir=./.next" >> $GITHUB_OUTPUT
           else
+            echo "Using './dist' directory for deployment"
             echo "output_dir=./dist" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Debug - List directories
+        run: |
+          echo "Current directory structure:"
+          ls -la
+          if [ -d "./out" ]; then
+            echo "Contents of ./out:"
+            ls -la ./out
+          fi
+          if [ -d "./.next" ]; then
+            echo "Contents of ./.next:"
+            ls -la ./.next
+          fi
+      
+      - name: Verify production build
+        run: |
+          echo "Verifying production build..."
+          if [ -d "./out" ]; then
+            echo "✅ Static export successful"
+          elif [ -d "./.next" ]; then
+            echo "✅ Next.js build successful"
+          else
+            echo "❌ Build output not found!"
+            exit 1
           fi
       
       - name: Upload artifact
