@@ -8,8 +8,8 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="bg-gradient-to-b from-slate-950  to-cyan-950 p-4 sticky top-0 z-50 ">
-        <div className="container mx-auto flex justify-between items-center space-x-5 ">
+      <nav className="bg-transparent p-4 sticky top-0 z-50 ">
+        <div className="container mx-auto flex justify-between items-center space-x-9 ">
           <div
             className="text-white text-3xl text-pretty font-bold hover:cursor-pointer hover:bg-transparent cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 "
             onClick={() => window.location.reload()}
@@ -19,7 +19,7 @@ export default function Navbar() {
           <div className="flex items-center space-x-4">
             <Button
               className=" bg-transparent text-2xl  hover:bg-transparent text-white cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110"
-              onClick={() =>router.push("/") }
+              onClick={() => router.push("/")}
             >
               Home
             </Button>
@@ -29,8 +29,9 @@ export default function Navbar() {
             >
               Auctions
             </Button>
-            <Button className="text-white text-2xl bg-transparent hover:bg-transparent cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 "
-            onClick={()=>router.push("/contact")}
+            <Button
+              className="text-white text-2xl bg-transparent hover:bg-transparent cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 "
+              onClick={() => router.push("/contact")}
             >
               Contact
             </Button>
@@ -38,14 +39,14 @@ export default function Navbar() {
               <Button
                 variant="outline"
                 className="text-black-600 text-xl hover:cursor-pointer hover: cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 "
-                onClick={()=>router.push("/signin")}
+                onClick={() => router.push("/signin")}
               >
                 Sign In
               </Button>
               <Button
                 variant="default"
                 className=" text-white text-xl hover:cursor-pointer hover: cursor-pointer transition delay-150 duration-100 ease-in-out hover:-translate-y-1 hover:scale-110"
-                onClick={()=>router.push("/signin")}
+                onClick={() => router.push("/signin")}
               >
                 Sign Up
               </Button>
@@ -56,4 +57,3 @@ export default function Navbar() {
     </>
   );
 }
-
